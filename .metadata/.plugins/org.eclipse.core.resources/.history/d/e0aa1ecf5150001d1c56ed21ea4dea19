@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Bilgilerinizi giriniz.");
+		
+
+		Employee employee = new Employee("Ömer", 3000, 50, 1980);
+
+		employee.toString();
+	}
+
+}

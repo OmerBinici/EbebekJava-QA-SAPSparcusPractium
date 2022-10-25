@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class Employee {
+
+	String name;
+	double salary;
+	double workHours;
+	int hireYear;
+	double tax;
+	double bonus;
+	double raiseSalary;
+	int currentYear = 2021;
+
+	public Employee(name = input.nextLine(), salary = input.nextDouble(), workHours = input.nextDouble(), hireYear = input.nextInt()) {
+		this.name = name;
+		this.salary = salary;
+		this.workHours = workHours;
+		this.hireYear = hireYear;
+
+		Scanner input = new Scanner(System.in);
+
+		System.out.print("Lütfen Ad ve Soyad giriniz : ");
+		name = input.nextLine();
+
+		System.out.print("Lütfen maaşınızı giriniz : ");
+		salary = input.nextDouble();
+
+		System.out.print("Lütfen haftalık çalışma saatinizi giriniz : ");
+		workHours = input.nextDouble();
+
+		System.out.print("Lütfen işe giriş yılınızı giriniz : ");
+		hireYear = input.nextInt();
+
+		if (salary < 1000) {
+			tax = 0;
+		} else {
+			tax = salary * 0.03;
+		}
+
+		if (workHours > 40) {
+			bonus = (workHours - 40) * 30;
+		} else {
+			bonus = 0;
+		}
+
+		salary = salary + bonus - tax;
+
+		if ((currentYear - hireYear) >= 9 && (currentYear - hireYear) < 19) {
+			raiseSalary = salary * 0.1;
+		} else if ((currentYear - hireYear) >= 19) {
+			raiseSalary = salary * 0.15;
+		} else {
+			raiseSalary = salary * 0.05;
+		}
+	}
+
+	public String toString() {
+
+		double total1 = salary + bonus - tax;
+		double total2 = salary - tax + bonus + raiseSalary;
+		System.out.println("Adı : " + name);
+		System.out.println("Maaş : " + salary);
+		System.out.println("Çalışma saati : " + workHours);
+		System.out.println("Başlangıç yılı : " + hireYear);
+		System.out.println("Vergi : " + tax);
+		System.out.println("Bonus : " + bonus);
+		System.out.println("Maaş artışı : " + raiseSalary);
+		System.out.println("Vergi ve bonuslarla birlikte maaş : " + total1);
+		System.out.println("Toplam maaş : " + total2);
+
+		return null;
+	}
+
+}
